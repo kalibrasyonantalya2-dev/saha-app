@@ -157,4 +157,4 @@ def main(page: ft.Page):
 
     page.add(ana_tasarim_kutusu)
 
-ft.app(target=main, view=ft.AppView.WEB_BROWSER, port=8080)
+ft.app(target=main)
