@@ -22,8 +22,8 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Flet Kurulumu
-        run: pip install flet
+      - name: Gerekli Kütüphaneleri Kur
+        run: pip install -r requirements.txt
 
       - name: APK'yı İnşa Et (Otomatik Onaylı)
         run: yes | flet build apk
