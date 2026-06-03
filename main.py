@@ -1,12 +1,20 @@
 import flet as ft
+import traceback
+import os
 
 def main(page: ft.Page):
-    page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-    
-    page.add(
-        ft.Text("TEST BAŞARILI! BEYAZ EKRANI GEÇTİK!", size=25, color=ft.Colors.GREEN, weight=ft.FontWeight.BOLD)
-    )
+    try:
+        # Kendi uygulamanın kodlarını buraya yaz...
+        page.add(ft.Text("Eğer bunu görüyorsan uygulama çalıştı!"))
+        
+    except Exception as e:
+        # Kod patlarsa, hatayı telefonun Download klasörüne txt olarak yazdır
+        hata_mesaji = traceback.format_exc()
+        
+        # Android'de genel Download klasörü yolu budur:
+        hata_yolu = "/storage/emulated/0/Download/flet_hata_logu.txt"
+        
+        with open(hata_yolu, "w") as f:
+            f.write(hata_mesaji)
 
 ft.app(target=main)
-
